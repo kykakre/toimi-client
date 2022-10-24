@@ -1,0 +1,192 @@
+@import "../../style/Mixins.scss";
+
+.container {
+  @include fluid(padding-top, 34px, 45px);
+  @include fluid(padding-left, 42px, 50px);
+  @include fluid(padding-right, 40px, 65px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include container();
+}
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  li {
+    @include fluid(margin-right, 35px, 50px);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.link {
+  position: relative;
+  color: #282828;
+  @include fluid(font-size, 16px, 18px);
+  font-weight: 600;
+  transition: 0.38s ease-in-out;
+  &:hover {
+    color: #282828;
+    &:before {
+      width: 100%;
+    }
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    border-radius: 7px;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #388af3;
+    width: 0;
+    height: 7px;
+    transition: 0.38s ease-in-out;
+  }
+}
+.active {
+  color: #388af3;
+  &:hover {
+    color: #388af3;
+  }
+  &:before {
+    width: 7px;
+  }
+}
+.logo {
+  width: 115px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+.lang {
+  @include fluid(font-size, 14px, 16px);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  margin-right: 15px;
+  transition: 0.38s ease-in-out;
+  color: #979bad;
+  font-weight: 600;
+  &:hover {
+    &:before {
+      width: 100%;
+    }
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    border-radius: 4px;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #388af3;
+    width: 0;
+    height: 4px;
+    transition: 0.38s ease-in-out;
+  }
+}
+.more {
+  display: none;
+}
+.langActive {
+  color: #388af3;
+  &:before {
+    width: 4px;
+  }
+}
+.progect {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  @include fluid(margin-left, 48px, 35px);
+  &:hover {
+    .arrow {
+      margin-left: 24px;
+      margin-right: -3px;
+    }
+    &:before {
+      border: 1px solid #388af3;
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    border: 1px solid #e2e2e2;
+    border-radius: 70px;
+    top: 50%;
+    left: 89%;
+    width: 61px;
+    height: 61px;
+    transition: 0.38s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+}
+.text {
+  @include fluid(font-size, 14px, 16px);
+  color: #388af3;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+.arrow {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+  object-position: center;
+  margin-left: 21px;
+  transition: 0.38s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: unset;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 100px;
+  }
+  ul {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  .logo {
+    width: 85px;
+    height: 40px;
+  }
+  .lang {
+    display: none;
+  }
+  .item {
+    display: none;
+  }
+  .more {
+    display: block;
+    width: 31px;
+    height: 7px;
+    object-fit: contain;
+    object-position: center;
+    cursor: pointer;
+  }
+  .container {
+    margin-bottom: 60px;
+  }
+}

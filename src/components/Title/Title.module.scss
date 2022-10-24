@@ -1,0 +1,21 @@
+@import "../../style/Mixins.scss";
+
+.title {
+  @include fluid(font-size, 60px, 80px);
+  font-weight: 700;
+  @include fluid(line-height, 40px, 120px);
+  color: #388af3;
+}
+
+@media screen and (max-width: 992px) {
+  .title {
+    line-height: 200%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .title {
+    line-height: 100%;
+    font-size: 40px;
+    margin-bottom: 25px;
+  }
+}

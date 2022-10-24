@@ -1,0 +1,26 @@
+@import "../../style/Mixins.scss";
+
+.text {
+  @include fluid(font-size, 16px, 20px);
+  @include fluid(margin-bottom, 100px, 125px);
+  font-weight: 400;
+  line-height: 150%;
+  width: 50%;
+  color: #343434;
+  a {
+    font-weight: 700;
+    color: #388af3;
+  }
+}
+@media screen and (max-width: 992px) {
+  .text {
+    line-height: 188%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .text {
+    width: 100%;
+    margin-bottom: 90px;
+  }
+}

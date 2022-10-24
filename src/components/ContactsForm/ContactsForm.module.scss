@@ -1,0 +1,288 @@
+@import "../../style/Mixins.scss";
+
+form {
+  display: flex;
+  align-items: center;
+}
+.item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  @include fluid(margin-right, 150px, 185px);
+}
+.item {
+  @include fluid(width, 756px, 741px);
+}
+.input {
+  @include fluid(width, 411px, 433px);
+  margin-bottom: 60px;
+  border-bottom: 1px solid #e2e2e2;
+  position: relative;
+  @include fluid(padding-bottom, 8px, 9px);
+  @include fluid(margin-right, 20px, 30px);
+  &:nth-child(2n) {
+  }
+}
+.inputMail {
+  @include fluid(width, 325px, 278px);
+  margin-right: 0;
+}
+.inputLabel {
+  position: absolute;
+  pointer-events: none;
+  @include fluid(font-size, 22px, 26px);
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 0.3s;
+  color: #cccccc;
+  font-weight: 300;
+  top: -4px;
+  left: 0;
+  @include fluid(line-height, 26px, 31px);
+  span {
+    color: red;
+  }
+}
+.inputItem {
+  border: none;
+  background: transparent;
+  outline: none;
+  overflow: hidden;
+  font-family: "Gilroy", sans-serif;
+  @include fluid(width, 411px, 433px);
+  @include fluid(font-size, 16px, 18px);
+}
+.inputItemEmail {
+  @include fluid(width, 325px, 278px);
+}
+
+.inputItem:focus ~ .inputLabel,
+.inputItem:not(:focus):valid ~ .inputLabel {
+  top: -30px;
+  @include fluid(font-size, 12px, 16px);
+}
+
+.textarea {
+  width: 100%;
+  border-bottom: 1px solid #e2e2e2;
+  position: relative;
+  @include fluid(padding-bottom, 8px, 9px);
+  @include fluid(margin-right, 20px, 30px);
+  margin-bottom: 30px;
+}
+
+.textareaItem {
+  border: none;
+  resize: none;
+  background: transparent;
+  outline: none;
+  overflow: hidden;
+  width: 740px;
+  font-family: "Gilroy", sans-serif;
+  @include fluid(font-size, 16px, 18px);
+  height: 75px;
+}
+.textareaLabel {
+  position: absolute;
+  pointer-events: none;
+  @include fluid(font-size, 22px, 26px);
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 0.3s;
+  color: #cccccc;
+  font-weight: 300;
+  top: -4px;
+  left: 0;
+  @include fluid(line-height, 26px, 31px);
+  span {
+    color: red;
+  }
+}
+
+.textareaItem:focus ~ .textareaLabel,
+.textareaItem:not(:focus):valid ~ .textareaLabel {
+  top: -30px;
+  @include fluid(font-size, 12px, 16px);
+}
+
+.checkboxItem {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.checkboxItem + label {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  user-select: none;
+  font-size: 18px;
+  color: #6d6d6d;
+  font-weight: 400;
+  span {
+    margin-left: 5px;
+    color: #388af3;
+  }
+}
+.checkboxItem + label::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #d3d3d3;
+  border-radius: 50%;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.checkboxItem:checked + label::before {
+  border-color: #d3d3d3;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23388af3'/%3e%3c/svg%3e");
+}
+
+.btn {
+  position: relative;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #fff;
+  width: 225px;
+  height: 225px;
+  transition: 0.38s ease-in-out;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    background: linear-gradient(93.29deg, #388af3 21.04%, #a483e2 88.77%);
+    border-radius: 50%;
+    z-index: -1;
+  }
+  &:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .btnText {
+      color: #fff;
+      margin-top: 0;
+      text-align: center;
+    }
+    background: #388af3;
+    &:before {
+      background: #388af3;
+    }
+    .icon {
+      width: 95px;
+      height: 70px;
+      top: 3%;
+      left: 52%;
+    }
+  }
+}
+.icon {
+  width: 58px;
+  height: 48px;
+  object-fit: contain;
+  object-position: center;
+  transition: 0.38s ease-in-out;
+  position: absolute;
+  top: 25%;
+  left: 38%;
+  transition: 0.38s ease-in-out;
+}
+.btnText {
+  @include fluid(font-size, 18px, 20px);
+  color: #388af3;
+  margin-top: 55px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  transition: 0.38s ease-in-out;
+}
+
+.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .btnText {
+    color: #fff;
+    margin-top: 0;
+    text-align: center;
+  }
+  background: #388af3;
+  &:before {
+    background: #388af3;
+  }
+  .icon {
+    width: 0px;
+    height: 0px;
+    top: 0%;
+    left: 87%;
+  }
+  &:hover {
+    .icon {
+      width: 0;
+      height: 0;
+      top: 0%;
+      left: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn {
+    margin-top: 60px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .inputLabel {
+    font-size: 26px;
+  }
+  .textarea {
+    margin-right: 0;
+  }
+  .btn {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .item {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding-right: 40px;
+  }
+  .input {
+    width: 100%;
+    margin-bottom: 65px;
+  }
+  .textarea {
+    margin-bottom: 35px;
+    padding-bottom: 3px;
+  }
+  .inputItemEmail {
+    width: 100%;
+  }
+  .inputLabel {
+    font-size: 22px;
+  }
+  .btn {
+    width: 207px;
+    height: 207px;
+  }
+  .checkboxItem {
+    align-items: flex-start;
+    label {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import "../../style/Mixins.scss";
+
+.flex {
+  display: flex;
+  align-items: center;
+  @include fluid(margin-bottom, 57px, 61px);
+}
+.item {
+  @include fluid(font-size, 16px, 18px);
+  font-weight: 300;
+  color: #303030;
+  margin-right: 3px;
+}
+.active {
+  font-weight: 600;
+  margin-left: 3px;
+}
+@media screen and (max-width: 992px) {
+  .flex {
+    margin-bottom: 60px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .item {
+    font-size: 12px;
+  }
+}
