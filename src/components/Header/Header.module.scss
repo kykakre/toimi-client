@@ -9,6 +9,22 @@
   justify-content: space-between;
   @include container();
 }
+.drawerNav{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  li{
+    margin-right: 0;
+  }
+  .link{
+    display: block;
+    @include fluid(margin-bottom, 15px, 30px);
+    &:before{
+      bottom: -10px   ;
+    }
+  }
+}
 ul {
   list-style: none;
   display: flex;
@@ -98,7 +114,15 @@ ul {
   }
 }
 .more {
-  display: none;
+  display: block;
+  position: absolute;
+  width: 31px;
+  height: 15px;
+  object-fit: contain;
+  object-position: center;
+  left: 3%;
+  top: 42%;
+  cursor: pointer;
 }
 .langActive {
   color: #388af3;
@@ -155,8 +179,20 @@ ul {
   position: relative;
   z-index: 2;
 }
-
+@media screen and (max-width:1400px){
+  .more{
+    display: block;
+    right: 5%;
+    left: unset;
+    top: 20%  ;
+  }
+}
 @media screen and (max-width: 992px) {
+
+  .drawerNav{
+    display: flex;
+    flex-direction: column;
+  }
   .container {
     max-width: unset;
     padding-left: 40px;
@@ -180,10 +216,7 @@ ul {
   }
   .more {
     display: block;
-    width: 31px;
-    height: 7px;
-    object-fit: contain;
-    object-position: center;
+    position: unset;
     cursor: pointer;
   }
   .container {

@@ -7,13 +7,15 @@ const ContactsForm = (props) => {
   const [email, setEmail] = useState("");
   const [comments, setComments] = useState("");
 
+  console.log(form)
+
   let data = {
     name,
     email,
     comments,
   };
   return (
-    <form>
+    <form >
       <div className={style.item}>
         <div className={style.input}>
           <input
@@ -39,7 +41,6 @@ const ContactsForm = (props) => {
         </div>
         <div className={style.textarea}>
           <textarea
-            onresize={false}
             onChange={(e) => setComments(e.target.value)}
             required
             className={style.textareaItem}
@@ -66,13 +67,16 @@ const ContactsForm = (props) => {
       <button
         className={form ? `${style.btn} ${style.active}` : `${style.btn}`}
         onClick={(e) => {
+          e.preventDefault();
+
           {
-            name === "" || email === "" || comments === ""
-              ? setForm(false)
-              : e.preventDefault();
-            props.PostFormSending(data);
-            setForm(true);
+            name === '' || email === '' || comments === '' ?
+                setForm(false)
+                :
+            setForm(true)
           }
+
+
         }}
       >
         <img src={fly} className={style.icon} />

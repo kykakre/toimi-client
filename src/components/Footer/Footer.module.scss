@@ -194,11 +194,38 @@
   margin: 0 auto;
   padding-bottom: 20px;
 }
+.linkBlock{
+  width: fit-content;
+  position: relative;
+  color: #fff;
+  transition: .38s ease-in-out;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    height: 3px;
+    border-radius: 3px;
+    width: 0;
+    background: #fff;
+    transition: 0.38s ease-in-out;
+  }
+  &:hover {
+    color: #fff;
+
+    &:before {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
 .link {
   width: 25%;
   color: #fff;
   font-size: 14px;
   font-weight: 600;
+
+
 }
 
 @media screen and (max-width: 1220px) {

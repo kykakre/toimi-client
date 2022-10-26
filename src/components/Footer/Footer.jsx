@@ -73,9 +73,12 @@ const Footer = () => {
       </div>
       <div className={style.between}>
         <div className={style.right}>© Company 2022. All rights reserved.</div>
-        <NavLink to="#" className={style.link}>
-          Политика конфиденциальности
-        </NavLink>
+        <div className={style.link}>
+          <NavLink to="#" className={style.linkBlock}>
+            Политика конфиденциальности
+          </NavLink>
+        </div>
+
       </div>
     </div>
   );
